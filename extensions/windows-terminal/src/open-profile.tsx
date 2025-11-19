@@ -26,7 +26,7 @@ export default function Command() {
   return (
     <List searchBarPlaceholder="Search all profiles...">
       {PROFILES.profiles.list
-        .filter((item) => item.hidden === false)
+        .filter((item) => item.hidden !== true)
         .map((item) => (
           <List.Item
             key={item.guid}
@@ -60,7 +60,7 @@ export default function Command() {
                 <ActionPanel.Section>
                   <Action.Open
                     icon={Icon.Code}
-                    // settings.json is the case-sestitive name of the settings
+                    // settings.json is the case-sensitive name of the settings
                     // file for windows terminal. we do not need this.
                     // eslint-disable-next-line
                     title="Open settings.json"
