@@ -57,6 +57,23 @@ export default function Command() {
                     execFile("wt.exe", ["-p", item.name]);
                   }}
                 />
+                <Action
+                  icon={Icon.Shield}
+                  title="Open as Administrator"
+                  onAction={async () => {
+                    await closeMainWindow();
+                    execFile("powershell", [
+                      "Start-Process",
+                      "wt.exe",
+                      "-ArgumentList",
+                      "'-p",
+                      item.name,
+                      "'",
+                      "-Verb",
+                      "RunAs",
+                    ]);
+                  }}
+                />
                 <ActionPanel.Section>
                   <Action.Open
                     icon={Icon.Code}
