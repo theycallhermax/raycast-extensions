@@ -68,10 +68,7 @@ export default function Command() {
                       "Start-Process",
                       "wt.exe",
                       "-ArgumentList",
-                      "'",
-                      "-p",
-                      item.name,
-                      "'",
+                      `"-p","${item.name}"`,
                       "-Verb",
                       "RunAs",
                     ]);
